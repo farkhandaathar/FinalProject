@@ -1,0 +1,45 @@
+<?php
+use \app\assets\AppAsset;
+use yii\helpers\Html;
+
+/* @var $this \yii\web\View */
+/* @var $content string */
+
+dmstr\web\AdminLteAsset::register($this);
+$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/admin-lte';
+?>
+
+<?php $this->beginPage() ?>
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>" class="back">
+<head>
+    <meta charset="<?= Yii::$app->charset ?>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?= Html::csrfMetaTags() ?>
+    <title><?= Html::encode($this->title) ?></title>
+    <?php $this->head() ?>
+    <style>
+    .back {
+        
+        /* background: url('https://source.unsplash.com/twukN12EN7c/1920x1080') no-repeat center center fixed;*/
+        background-image: linear-gradient(#47CACC, #CDB3D4);
+              
+     }
+     .main {
+        background-image: linear-gradient(white, white);
+        margin: 0px 400px 20px 400px;
+        padding: 0px 20px 80px 30px;
+        
+    }
+     </style>
+</head>
+<body class="back">
+
+<?php $this->beginBody() ?>
+<div class="main">
+    <?= $content ?>
+</div>
+<?php $this->endBody() ?>
+</body>
+</html>
+<?php $this->endPage() ?>
