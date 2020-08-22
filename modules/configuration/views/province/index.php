@@ -12,13 +12,13 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="province-index">
 
-    <div class="form-group col-4 no-padding">
+    <div class="form-group col col-sm-3 col-lg-3">
     <p>
         <?= Html::a('Create Province', ['create'], ['class' => 'btn btn-success btn-block']) ?>
     </p>
     </div>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
+<br><br><br>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,

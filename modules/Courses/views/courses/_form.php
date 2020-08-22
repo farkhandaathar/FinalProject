@@ -23,20 +23,25 @@ use yii\helpers\Url;
     <?php $form = ActiveForm::begin(); ?>
     
   <div class= "row">
-  <div class="col col-lg-5">
+  <div class="col col-lg-6 col-sm-6">
     <?=$form->field($model, 'course_name')->textInput(['maxlength' => true,]) ?>
   </div>
 
-  <div class="col col-lg-5">
+  <div class="col col-lg-6 col-sm-6">
     <?= $form->field($model, 'course_code')->textInput(['maxlength' => true]) ?>
     </div>
   </div>
 
-
+<div class="row">
+<div class="col col-lg-6 col-lg-6">
     <?= $form->field($model, 'course_alias')->textInput(['maxlength' => true]) ?>
-
+  </div>
+  <div class="col col-lg-6 col-sm-6">
     <?= $form->field($model, 'created_by')->textInput() ?>
-
+  </div>
+</div>
+<div class="row">
+<div class="col col-lg-6 col-sm-6">
     <?= $form->field($model, 'created_at')->widget(
     DatePicker::className(), [
         // inline too, not bad
@@ -48,10 +53,13 @@ use yii\helpers\Url;
             'format' => 'dd-M-yyyy'
         ]
 ]);?>
-    
+</div>
+<div class="col col-lg-6 col-sm-6"> 
     <?= $form->field($model, 'is_status')->textInput() ?>
+</div>
+</div>
 
-    <div class="form-group col-4">
+    <div class="form-group col col-lg-3 col-sm-3">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success btn-block']) ?>
     </div>
 

@@ -8,6 +8,7 @@ use app\modules\Announcements\models\EventsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\db\ActiveRecord;
 
 /**
  * EventsController implements the CRUD actions for Events model.
@@ -35,12 +36,27 @@ class EventsController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new EventsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        
+        $events = Events::find()->all();
+        $tasks = [];
+        foreach ($events as $event)
+        {
+            $event = new Events();
+            $event->event_id = $event->event_id;
+            $event->event_title = $event->event_title;
+            $event->event_description = $event->event_description;
+            $event->created_at = $event->created_at;
+            $tasks[] = $event;
+        }
+      $searchModel = new EventsSearch();
+       $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+       
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'events' => $tasks,
+          'searchModel' => $searchModel,
+          'dataProvider' => $dataProvider,
+          
+           
         ]);
     }
 
@@ -56,7 +72,7 @@ class EventsController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
-
+  
     /**
      * Creates a new Events model.
      * If creation is successful, the browser will be redirected to the 'view' page.

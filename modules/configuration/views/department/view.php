@@ -14,10 +14,14 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="department-view">
 
 
-<div class="form-group col-4 no-padding">
+<div class="form-group">
+<div class="row">
+<div class="col col-sm-3 col-lg-3">
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->department_id], ['class' => 'btn btn-primary btn-block']) ?>
+        </div>
+        <div class="col col-sm-3 col-lg-3">
         <?= Html::a('Delete', ['delete', 'id' => $model->department_id], [
             'class' => 'btn btn-danger btn-block',
             'data' => [
@@ -27,14 +31,31 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 </div>
+</div>
+</div>
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
            // 'department_id',
             'department_name',
-            'created_by',
-            'is_status',
+        //'created_by',
+        [
+            'attribute' => 'created_by',
+            'label' => 'Created By',
+            'value' => function ($model){
+            return $model->created_by==1?'Admin':'Staff';
+            },
+        ],
+
+            [
+                'attribute' => 'is_status',
+                'label' => 'Status',
+                'value' => function ($model){
+                return $model->is_status==1?'Active':'Not-Active';
+                },
+            ],
+
         ],
     ]) ?>
 

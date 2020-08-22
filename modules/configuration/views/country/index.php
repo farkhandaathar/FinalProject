@@ -36,10 +36,18 @@ $this->params['breadcrumbs'][] = $this->title;
             //'country_id',
             'country_name',
             //'created_at',
-            'created_by',
+           // 'created_by',
            // 'updated_at',
-            'updated_by',
+           // 'updated_by',
            // 'is_status',
+           [
+            'attribute' => 'is_status',
+            'label' => 'is_tatus',
+            'value' => function ($model){
+            return $model->is_status==1?'Active':'Not-Active';
+            },
+        ],
+
           
             ['class' => 'yii\grid\ActionColumn'],
         ],

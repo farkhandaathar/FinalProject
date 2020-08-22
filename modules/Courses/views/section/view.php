@@ -13,10 +13,13 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="section-view">
 
-    <div class="form-group col-4 no-padding">
-
+    <div class="form-group">
+    <div class="row">
+    <div class="col col-sm-3 col-lg-3">
     <p>
         <?= Html::a('Update', ['update', 'section_id' => $model->section_id, 'section_name' => $model->section_name], ['class' => 'btn btn-primary btn-block']) ?>
+       </div>
+       <div class="col col-sm-3 col-lg-3">
         <?= Html::a('Delete', ['delete', 'section_id' => $model->section_id, 'section_name' => $model->section_name], [
             'class' => 'btn btn-danger btn-block',
             'data' => [
@@ -27,6 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     </div>
 
+    </div>
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -34,9 +39,25 @@ $this->params['breadcrumbs'][] = $this->title;
             'section_name',
             'section_course_id',
             'intake',
+          
             'created_at',
-            'created_by',
-            'is_status',
+            [
+                'attribute' => 'created_by',
+                'label' => 'Created By',
+                'value' => function ($model){
+                return $model->created_by==1?'Admin':'Staff';
+                },
+            ],
+    [
+                    'attribute' => 'is_status',
+                    'label' => 'Status',
+                    'value' => function ($model){
+                    return $model->is_status==1?'Active':'Not-Active';
+                    },
+                ],
+    
+    
+    
         ],
     ]) ?>
 

@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 use yii\jui\DatePicker;
+use yii\web\JsExpression;
 /* @var $this yii\web\View */
 /* @var $model app\modules\Announcements\models\Events */
 /* @var $form yii\widgets\ActiveForm */

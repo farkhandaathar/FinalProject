@@ -10,7 +10,7 @@ use yii\bootstrap\NavBar;
 AppAsset::register($this);
 ?>
 
-<header class="header">
+<header class="header position-sticky">
 
 <?= Html::a(Yii::$app->name, Yii::$app->homeUrl, ['class' => 'logo']) ?>
 

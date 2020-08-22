@@ -12,13 +12,13 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="designation-index">
 
-   <div class="form-group col-4 no-padding">
+   <div class="form-group col col-sm-3 col-lg-3">
 
     <p>
         <?= Html::a('Create Designation', ['create'], ['class' => 'btn btn-success btn-block']) ?>
     </p>
     </div>
-
+<br><br><br>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
@@ -29,8 +29,22 @@ $this->params['breadcrumbs'][] = $this->title;
 
             //'designation_id',
             'designation_name',
-            'created_by',
-            'is_status',
+            [
+                'attribute' => 'is_status',
+                'label' => 'Status',
+                'value' => function ($model){
+                return $model->is_status==1?'Active':'Not-Active';
+                },
+            ],
+ [
+            'attribute' => 'created_by',
+            'label' => 'Created By',
+            'value' => function ($model){
+            return $model->created_by==1?'Admin':'Staff';
+            },
+        ],
+
+
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

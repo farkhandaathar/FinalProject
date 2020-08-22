@@ -26,7 +26,9 @@
         "kartik-v/yii2-widget-select2": "*",
         "kartik-v/yii2-widgets": "*",
         "kartik-v/yii2-widget-datetimepicker": "@dev",
-        "dmstr/yii2-adminlte-asset": "1.*"
+        "dmstr/yii2-adminlte-asset": "1.*",
+        "edofre/yii2-fullcalendar": "V1.0.11",
+        "pceuropa/yii2-email": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

@@ -13,10 +13,13 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="category-view">
 
-<div class="form-group col-4 no-padding">
+<div class="form-group row">
 
     <p>
+    <div class="col col-sm-3 col-lg-3">
         <?= Html::a('Update', ['update', 'id' => $model->category_id], ['class' => 'btn btn-primary btn-block']) ?>
+    </div>
+    <div class="col col-sm-3 col-lg-3">
         <?= Html::a('Delete', ['delete', 'id' => $model->category_id], [
             'class' => 'btn btn-danger btn-block',
             'data' => [
@@ -24,15 +27,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        </div>
     </p>
     </div>
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'category_id',
+           // 'category_id',
             'category_name',
-            'created_by',
+           // 'created_by',
             'is_status',
         ],
     ]) ?>

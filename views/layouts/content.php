@@ -28,7 +28,7 @@ use dmstr\widgets\Alert;
 
     <footer class="footer navbar-fixed-bottom">
         <div class="container">
-            <p class="pull-left">&copy; My Company <?= date('Y') ?><?= Yii::powered() ?></p>
+            <p class="text-center">&copy; My Company <?= date('Y') ?><?= Yii::powered() ?></p>
         </div>
     </footer>
 

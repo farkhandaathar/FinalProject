@@ -12,9 +12,13 @@ $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="batches-view">
-    <div class="form-group col-4 no-padding">
+    <div class="form-group">
+<div class="row">
+<div class="col col-sm-3 col-lg-3">
     <p>
         <?= Html::a('Update', ['update', 'batch_id' => $model->batch_id, 'batch_name' => $model->batch_name, 'batch_alias' => $model->batch_alias], ['class' => 'btn btn-primary btn-block']) ?>
+       </div>
+       <div class="col col-sm-3 col-lg-3">
         <?= Html::a('Delete', ['delete', 'batch_id' => $model->batch_id, 'batch_name' => $model->batch_name, 'batch_alias' => $model->batch_alias], [
             'class' => 'btn btn-danger btn-block',
             'data' => [
@@ -22,6 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        </div>
     </p>
     </div>
 
@@ -33,9 +38,25 @@ $this->params['breadcrumbs'][] = $this->title;
             'batch_alias',
             'start_date',
             'end_date',
-            'created_at',
             'created_by',
-            'is_status',
+            [
+                'attribute' => 'created_by',
+                'label' => 'Created By',
+                'value' => function ($model){
+                return $model->created_by==1?'Admin':'Staff';
+                },
+            ],
+    [
+                    'attribute' => 'is_status',
+                    'label' => 'Status',
+                    'value' => function ($model){
+                    return $model->is_status==1?'Active':'Not-Active';
+                    },
+                ],
+    
+    
+    
+          
         ],
     ]) ?>
 

@@ -12,12 +12,12 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="batches-index">
 
-   <div class="form-group col-4 no-padding">
+   <div class="form-group col col-sm-3 col-lg-3">
     <p>
-        <?= Html::a('Create Batches', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Batches', ['create'], ['class' => 'btn btn-success btn-block']) ?>
     </p>
     </div>
-
+<br><br><br>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
@@ -32,8 +32,24 @@ $this->params['breadcrumbs'][] = $this->title;
             'start_date',
             'end_date',
             'created_at',
-            'created_by',
-            'is_status',
+            [
+                'attribute' => 'created_by',
+                'label' => 'Created By',
+                'value' => function ($model){
+                return $model->created_by==1?'Admin':'Staff';
+                },
+            ],
+    [
+                    'attribute' => 'is_status',
+                    'label' => 'Status',
+                    'value' => function ($model){
+                    return $model->is_status==1?'Active':'Not-Active';
+                    },
+                ],
+    
+    
+    
+           
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

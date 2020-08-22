@@ -18,7 +18,9 @@ $this->params['breadcrumbs'][] = $this->title;
  </div>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
+<br>
+<br>
+<br>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,

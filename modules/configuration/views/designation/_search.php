@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'is_status') ?>
 
-    <div class="form-group col-4 no-padding ">
+    <div class="form-group col col-sm-3 col-lg-3">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary btn-block']) ?>
         <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary btn-block']) ?>
     </div>

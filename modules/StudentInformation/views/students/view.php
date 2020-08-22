@@ -80,7 +80,7 @@ $this->params['breadcrumbs'][] = $this->title;
        <p >
        <b><?php echo 'Course:' ?></b>
 	   <?= Html::encode($model->degree0->course_name) ?><br>
-       <b><?php echo 'Btach:' ?></b>
+       <b><?php echo 'Batch:' ?></b>
 	   <?= Html::encode($model->batch0->batch_name) ?><br>
        <b><?php echo 'Section:' ?></b>
 	   <?= Html::encode($model->section0->section_name) ?><br>

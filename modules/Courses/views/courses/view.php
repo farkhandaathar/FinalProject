@@ -13,9 +13,13 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="courses-view">
 
-  <div class="form-group col-4 no-padding">
+  <div class="form-group ">
+  <div class="row">
     <p>
+    <div class="col col-sm-3 col-lg-3">
         <?= Html::a('Update', ['update', 'course_id' => $model->course_id, 'course_name' => $model->course_name], ['class' => 'btn btn-primary btn-block']) ?>
+    </div>
+    <div class="col col-sm-3 col-lg-3">
         <?= Html::a('Delete', ['delete', 'course_id' => $model->course_id, 'course_name' => $model->course_name], [
             'class' => 'btn btn-danger btn-block',
             'data' => [
@@ -23,8 +27,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        </div>
     </p>
 </div>
+<br>
 
     <?= DetailView::widget([
         'model' => $model,
@@ -33,9 +39,23 @@ $this->params['breadcrumbs'][] = $this->title;
             'course_name',
             'course_code',
             'course_alias',
-            'created_by',
+           
             'created_at',
-            'is_status',
+            [
+                'attribute' => 'is_status',
+                'label' => 'Status',
+                'value' => function ($model){
+                return $model->is_status==1?'Active':'Not-Active';
+                },
+            ],
+ [
+            'attribute' => 'created_by',
+            'label' => 'Created By',
+            'value' => function ($model){
+            return $model->created_by==1?'Admin':'Staff';
+            },
+        ],
+
         ],
     ]) ?>
 

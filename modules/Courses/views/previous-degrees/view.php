@@ -14,9 +14,12 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="previous-degrees-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
+<div class="row">
+<div class="col col-sm-3 col-lg-3">
     <p>
         <?= Html::a('Update', ['update', 'degree_id' => $model->degree_id, 'degree_name' => $model->degree_name], ['class' => 'btn btn-primary']) ?>
+       </div>
+       <div class="col col-sm-3 col-lg-3">
         <?= Html::a('Delete', ['delete', 'degree_id' => $model->degree_id, 'degree_name' => $model->degree_name], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -24,16 +27,26 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
-    </p>
+        </div>
 
+    </p>
+</div>
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'degree_id',
+           // 'degree_id',
             'degree_name',
             'degree_duration',
             'created_at',
-            'created_by',
+            //'created_by',
+            [
+                'attribute' => 'created_by',
+                'label' => 'Created By',
+                'value' => function ($model){
+                return $model->created_by==1?'Admin':'Staff';
+                },
+            ],
+    
         ],
     ]) ?>
 

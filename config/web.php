@@ -33,6 +33,9 @@ $config = [
         'Announcements' => [
             'class' => 'app\modules\Announcements\models',
         ],
+        'ResultRecord' => [
+            'class' => 'app\modules\ResultRecord\models',
+        ],
         'auth' => [
             'class' => 'app\Modules\auth\Module',
         ],
@@ -82,6 +85,7 @@ $config = [
             // for the mailer to send real emails.
             'useFileTransport' => true,
         ],
+        
         'authManager' => [
            // 'class' => 'yii\rbac\PhpManager', // or use 'yii\rbac\DbManager'.com
             'class' => 'yii\rbac\DBManager',
@@ -119,27 +123,21 @@ $config = [
         ],
         */
        
-      /*  'view' => [
-            'theme' => [
-                'pathMap' => [
-                   '@app/views' => '@vendor/hail812/yii2-adminlte3/src/views'
-                ],
-            ],
-       ],*/
+    
     ],
-   /* 'as access' => [
+    'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
            'site/*',
-             'admin/*',
-           'some-controller/some-action',
+           'admin/*',
+          // 'some-controller/some-action',
     //'site/login',
-         //'site/error',
+      // 'site/error',
          
           
           
         ]
-        ],*/
+        ],
     'params' => $params,
 ];
 
